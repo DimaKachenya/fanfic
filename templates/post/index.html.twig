@@ -1,0 +1,12 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+    {{ form_start(postForm) }}
+    {{ form_widget(postForm) }}
+    {{ form_start(chapterForm) }}
+    {{ form_widget(chapterForm) }}
+      <button type="submit" class="button">Отправить</button>
+    {{ form_end(chapterForm) }}
+    {{ form_end(postForm) }}
+{% endblock %}
+
+

@@ -1,0 +1,9 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    {{ form_start(chapterForm,{'method':'POST'}) }}
+        {{ form_widget(chapterForm) }}
+        <button type="submit" class="button">Add Chapter</button>
+    {{ form_end(chapterForm) }}
+    <li><a class="nav-link" href="{{ path('user_page') }}">Close</a></li>
+{% endblock %}

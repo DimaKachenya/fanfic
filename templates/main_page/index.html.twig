@@ -1,0 +1,18 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello MainPageController!{% endblock %}
+
+{% block body %}
+    {% for post in allPosts %}
+        <hr>
+        <h2 align="center">{{ post.name }}</h2>
+        <form action="{{ path("view_post", {id: post.id}) }}" method="post" >
+        <div> {{ post.short_description}}</div><br>
+        <div> <b>Genre:</b> {{ post.genre}}</div><br>
+        <lable value="{{ post.email }}" ><b>Author: </b> {{ post.email }}<br></lable>
+         <button>Open</button>
+        </form>
+        <hr>
+        </div>
+    {% endfor %}
+{% endblock %}

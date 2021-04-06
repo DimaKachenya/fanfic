@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello ViewPostController!{% endblock %}
+
+{% block body %}
+    <p><b>Author: </b>{{ userEmail }}</p>
+    <h2 align="center">{{ postName }}</h2>
+    {% for chapter in chapters %}
+        <h3  align="center">{{ chapter.chapterName }}</h3>
+        <div>{{ chapter.chapterBody }}</div>
+        <div><b>Likes: </b> {{ chapter.likeCounter }}</div>
+        <form method="post">
+            <button name="like" value="{{chapter.id }}">Like</button>
+        </form>
+       <br>
+    {% endfor %}
+    <div style="border: black 1px solid">
+    <div>average mark: {{ averageMark }}</div>
+        <form action="" method="post">
+            {% if not userHasRated %}
+                {{ form_start(markForm) }}
+                {{ form_widget(markForm) }}
+                <button>Estimate</button>
+                {{ form_end(markForm) }}
+            {% endif %}
+        </form>
+    </div>
+
+    <table>
+    {% for comment in comments %}
+        <tr style="border: black 1px solid">
+            <td style="background: #5eb5e0"> {{comment.getUserId.getEmail}} : </td>
+            <td>{{ comment.getText}}</td>
+        </tr>
+    {% endfor %}
+    </table>
+    {{ form_start(commentForm) }}
+    {{ form_widget(commentForm) }}
+    <button type="submit" class="button">Comment</button>
+    {{ form_end(commentForm) }}
+{% endblock %}

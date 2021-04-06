@@ -1,0 +1,23 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello UserPageController!{% endblock %}
+
+{% block body %}
+    {% for post in userPosts %}
+        <hr>
+        <form action="{{ path("view_post", {id: post.postId}) }}" method="post" >
+        <h3  align="center">{{ post.postName }}</h3>
+        <div>{{ post.postShortDescription }}</div>
+        <div>{{ post.postGenre }}</div>
+        <button>Open</button>
+        </form>
+        <form action="" method="post">
+            <button name="delete" value="{{ post.postId }}" >Delete</button>
+        </form>
+        <form action="{{ path("edit",{id: post.postId}) }}" method="post">
+            <button>Edit</button>
+        </form>
+        <hr>
+        <br>
+    {% endfor %}
+{% endblock %}

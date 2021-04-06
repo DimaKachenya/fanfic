@@ -1,0 +1,24 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello EditController!{% endblock %}
+
+{% block body %}
+    <form action="{{ path("edit_post", {id: post.id}) }}" method="post">
+        <hr>
+        <h1 align="center">{{ post.getName }}</h1>
+        <div>{{ post.shortDescription }}</div>
+        <div><b>Genre: </b>{{ post.genre }}</div>
+        <button>Edit post</button>
+        <hr>
+    </form>
+
+    {% for chapter in chapters %}
+        <form action="{{ path("edit_chapter", {id: chapter.id}) }}" method="post">
+        <h3  align="center">{{ chapter.chapterName }}</h3>
+        <div>{{ chapter.chapterBody }}</div>
+        <button>Edit chapter</button>
+            <br>
+        </form>
+    {% endfor %}
+
+{% endblock %}

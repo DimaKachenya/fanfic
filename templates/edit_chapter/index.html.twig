@@ -1,0 +1,10 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello EditChapterController!{% endblock %}
+
+{% block body %}
+    {{ form_start(chapterForm,{'method':'POST'}) }}
+    {{ form_widget(chapterForm) }}
+    <button type="submit" class="button">Отправить</button>
+    {{ form_end(chapterForm) }}
+{% endblock %}

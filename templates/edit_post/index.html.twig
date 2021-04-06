@@ -1,0 +1,10 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello EditPostController!{% endblock %}
+
+{% block body %}
+    {{ form_start(postForm,{'method':'POST'}) }}
+    {{ form_widget(postForm) }}
+    <button type="submit" class="button">Отправить</button>
+    {{ form_end(postForm) }}
+{% endblock %}
